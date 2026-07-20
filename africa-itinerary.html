@@ -58,7 +58,21 @@
   .flight .route{font-weight:700;font-size:15px;margin:3px 0 1px;color:#fff;}
   .flight .tms{color:#cfe0dc;}
   .flight .air{color:#8fa8a3;font-size:12px;margin-top:2px;}
-  .flight .segs{margin-top:8px;border-top:1px solid rgba(255,255,255,.12);padding-top:6px;}
+  .flight.has-detail{cursor:pointer;-webkit-tap-highlight-color:transparent;position:relative;}
+  .flight .flight-chev{
+    position:absolute;top:12px;right:12px;font-size:12px;color:#8fa8a3;
+    transition:transform .25s ease;
+  }
+  .flight.has-detail.open .flight-chev{transform:rotate(180deg);}
+  .flight .segs{
+    margin-top:0;max-height:0;overflow:hidden;opacity:0;
+    border-top:1px solid transparent;
+    transition:max-height .25s ease,opacity .2s ease,margin-top .25s ease,padding-top .25s ease;
+  }
+  .flight.has-detail.open .segs{
+    margin-top:8px;max-height:200px;opacity:1;padding-top:6px;
+    border-top-color:rgba(255,255,255,.12);
+  }
   .flight .seg{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:#cfe0dc;padding:1px 0;}
   .flight .seg b{color:#fff;font-weight:600;}
   .flight .seg.lay{color:#8fa8a3;font-style:italic;}
@@ -303,7 +317,8 @@
     <h1>Tanzania &amp; Kenya</h1>
     <div class="dates"><strong>Sun 9 → Sat 22 August 2026</strong> · Safari + Zanzibar + Nairobi</div>
     <div class="flights">
-      <div class="flight">
+      <div class="flight has-detail" onclick="toggleFlight(this)">
+        <span class="flight-chev">⌄</span>
         <div class="lbl">Leg 1</div>
         <div class="route">Athens ATH → Kilimanjaro JRO</div>
         <div class="tms">Sun 9 Aug 13:00 → Mon 10 Aug 01:40</div>
@@ -326,7 +341,8 @@
         <div class="tms">Wed 19 Aug · 10:50 → 12:20</div>
         <div class="air">Precision Air · direct · 1h30m</div>
       </div>
-      <div class="flight">
+      <div class="flight has-detail" onclick="toggleFlight(this)">
+        <span class="flight-chev">⌄</span>
         <div class="lbl">Leg 4 — home</div>
         <div class="route">Nairobi NBO → Athens ATH</div>
         <div class="tms">Sat 22 Aug 03:10 → 20:30</div>
@@ -432,15 +448,16 @@
         <text x="90" y="316" fill="#4a4a4a">Lake Manyara NP</text>
         <!-- Arusha (start/end + D5 evening) -->
         <circle cx="227" cy="282" r="8" fill="#12312e"/>
-        <text x="235" y="286" fill="#4a4a4a">Arusha (start/end)</text>
+        <text x="227" y="270" text-anchor="middle" fill="#4a4a4a">Arusha</text>
         <!-- Tarangire (D1) -->
         <circle cx="171" cy="396" r="8" fill="#0c6e73"/>
         <text x="171" y="400" text-anchor="middle" fill="#fff" font-size="10">1</text>
         <text x="120" y="420" fill="#4a4a4a">Tarangire NP</text>
         <!-- Materuni (D6, east of JRO) -->
         <circle cx="335" cy="295" r="8" fill="#d4502e"/>
-        <text x="230" y="255" fill="#4a4a4a">Materuni</text>
-        <text x="230" y="269" fill="#4a4a4a">Waterfalls</text>
+        <text x="335" y="299" text-anchor="middle" fill="#fff" font-size="10">6</text>
+        <text x="352" y="270" text-anchor="end" fill="#4a4a4a">Materuni</text>
+        <text x="352" y="284" text-anchor="end" fill="#4a4a4a">Waterfalls</text>
       </g>
     </svg>
     <div class="legend">
@@ -1041,6 +1058,10 @@ function toggleContacts(show){
   if (!modal) return;
   if (show) { modal.classList.add('open'); }
   else { modal.classList.remove('open'); }
+}
+
+function toggleFlight(card){
+  card.classList.toggle('open');
 }
 </script>
 
