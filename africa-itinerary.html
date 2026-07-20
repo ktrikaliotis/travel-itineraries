@@ -938,15 +938,15 @@
 <footer>Confirm all times locally — hours, tides, and showtimes can shift seasonally</footer>
 </div>
 
-<button class="fab" onclick="toggleContacts(true)" aria-label="Trip contacts">☎</button>
+<button class="fab" onclick="toggleContacts(true)" aria-label="Trip info">🧳</button>
 
 <div class="modal-backdrop" id="contactsModal" onclick="if(event.target===this) toggleContacts(false)">
   <div class="modal-card">
     <div class="modal-head">
-      <h3>Trip contacts</h3>
+      <h3>Trip info</h3>
       <button class="modal-close" onclick="toggleContacts(false)">✕</button>
     </div>
-    <div class="modal-sub">Tap 📞 to call, 💬 to WhatsApp</div>
+    <div class="modal-sub">Tap 📞 to call, 💬 to WhatsApp, 📍 to open in Google Maps</div>
 
     <div class="contact-group-lbl">Tour operators</div>
     <div class="contact-item">
@@ -972,13 +972,13 @@
     </div>
 
     <div class="contact-group-lbl">Accommodation (name only — book/operator holds the number)</div>
-    <div class="contact-item"><div class="contact-name">Marera Valley Lodge</div><div class="contact-plain">Aug 10 · Tarangire</div></div>
-    <div class="contact-item"><div class="contact-name">Serengeti Wildebeest Camps</div><div class="contact-plain">Aug 11–12 · Serengeti</div></div>
-    <div class="contact-item"><div class="contact-name">Farm of Dreams Lodge</div><div class="contact-plain">Aug 13 · Ngorongoro</div></div>
-    <div class="contact-item"><div class="contact-name">Golden Crest Hotel</div><div class="contact-plain">Aug 14 · Arusha</div></div>
-    <div class="contact-item"><div class="contact-name">Nungwi Beach Front</div><div class="contact-plain">Aug 15–18 · Nungwi</div></div>
-    <div class="contact-item"><div class="contact-name">Mizingani Seafront Hotel</div><div class="contact-plain">Aug 18–19 · Stone Town</div></div>
-    <div class="contact-item"><div class="contact-name">Lotos Inn &amp; Suites, Westlands</div><div class="contact-plain">Aug 19–21 · Nairobi</div></div>
+    <div class="contact-item"><div><div class="contact-name">Marera Valley Lodge</div><div class="contact-plain">Aug 10 · Tarangire</div></div><div class="contact-actions"><a class="contact-btn" href="https://maps.app.goo.gl/h2TxXmZPa1u592L37" target="_blank" rel="noopener" aria-label="Open in Google Maps">📍</a></div></div>
+    <div class="contact-item"><div><div class="contact-name">Serengeti Wildebeest Camps</div><div class="contact-plain">Aug 11–12 · Serengeti</div></div><div class="contact-actions"><a class="contact-btn" href="https://maps.app.goo.gl/Asth3T11XDmpjiRt6" target="_blank" rel="noopener" aria-label="Open in Google Maps">📍</a></div></div>
+    <div class="contact-item"><div><div class="contact-name">Farm of Dreams Lodge</div><div class="contact-plain">Aug 13 · Ngorongoro</div></div><div class="contact-actions"><a class="contact-btn" href="https://maps.app.goo.gl/5SAPEoGzU6ETTSrJ7" target="_blank" rel="noopener" aria-label="Open in Google Maps">📍</a></div></div>
+    <div class="contact-item"><div><div class="contact-name">Golden Crest Hotel</div><div class="contact-plain">Aug 14 · Arusha</div></div><div class="contact-actions"><a class="contact-btn" href="https://maps.app.goo.gl/NKC5QQ1NLSYV16u96" target="_blank" rel="noopener" aria-label="Open in Google Maps">📍</a></div></div>
+    <div class="contact-item"><div><div class="contact-name">Nungwi Beach Front</div><div class="contact-plain">Aug 15–18 · Nungwi</div></div><div class="contact-actions"><a class="contact-btn" href="https://maps.app.goo.gl/CT9rG9U68Qt4uA1u9" target="_blank" rel="noopener" aria-label="Open in Google Maps">📍</a></div></div>
+    <div class="contact-item"><div><div class="contact-name">Mizingani Seafront Hotel</div><div class="contact-plain">Aug 18–19 · Stone Town</div></div><div class="contact-actions"><a class="contact-btn" href="https://maps.app.goo.gl/122qhpLtN77JM2xh6" target="_blank" rel="noopener" aria-label="Open in Google Maps">📍</a></div></div>
+    <div class="contact-item"><div><div class="contact-name">Lotos Inn &amp; Suites, Westlands</div><div class="contact-plain">Aug 19–21 · Nairobi</div></div><div class="contact-actions"><a class="contact-btn" href="https://maps.app.goo.gl/QNge1VHDHmC4grX76" target="_blank" rel="noopener" aria-label="Open in Google Maps">📍</a></div></div>
 
     <div class="contact-group-lbl">Emergency</div>
     <div class="contact-item">
