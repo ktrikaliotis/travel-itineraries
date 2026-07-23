@@ -266,6 +266,9 @@
     cursor:pointer;-webkit-tap-highlight-color:transparent;
     display:flex;align-items:center;justify-content:center;
   }
+  .fab-docs{right:84px;background:var(--coral);}
+  .doc-pending{opacity:.55;}
+  .doc-pending .contact-btn{pointer-events:none;background:var(--line);color:var(--muted);}
   .modal-backdrop{
     position:fixed;inset:0;background:rgba(14,34,38,.55);
     display:none;align-items:flex-end;justify-content:center;
@@ -957,6 +960,7 @@
 </div>
 
 <button class="fab" onclick="toggleContacts(true)" aria-label="Trip info">🧳</button>
+<button class="fab fab-docs" onclick="toggleDocuments(true)" aria-label="Important documents">📄</button>
 
 <div class="modal-backdrop" id="contactsModal" onclick="if(event.target===this) toggleContacts(false)">
   <div class="modal-card">
@@ -1010,6 +1014,54 @@
   </div>
 </div>
 
+<div class="modal-backdrop" id="documentsModal" onclick="if(event.target===this) toggleDocuments(false)">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3>Important documents</h3>
+      <button class="modal-close" onclick="toggleDocuments(false)">✕</button>
+    </div>
+    <div class="modal-sub">Tap 📄 to open. Files are stored in the /documents folder of this site.</div>
+
+    <div class="contact-group-lbl">Kenya eTA</div>
+    <div class="contact-item">
+      <div><div class="contact-name">Konstantinos</div><div class="contact-plain">Approved</div></div>
+      <div class="contact-actions"><a class="contact-btn" href="documents/KENYA_VISA_TRIK.pdf" target="_blank" rel="noopener" aria-label="Open Konstantinos Kenya eTA">📄</a></div>
+    </div>
+    <div class="contact-item">
+      <div><div class="contact-name">Sia</div><div class="contact-plain">Approved</div></div>
+      <div class="contact-actions"><a class="contact-btn" href="documents/KENYA_VISA_SIA.pdf" target="_blank" rel="noopener" aria-label="Open Sia Kenya eTA">📄</a></div>
+    </div>
+
+    <div class="contact-group-lbl">Zanzibar mandatory inbound insurance</div>
+    <div class="contact-item">
+      <div><div class="contact-name">Konstantinos — certificate</div><div class="contact-plain">Approved</div></div>
+      <div class="contact-actions"><a class="contact-btn" href="documents/Visit_Zanzibar_TRIK.pdf" target="_blank" rel="noopener" aria-label="Open Konstantinos Zanzibar insurance">📄</a></div>
+    </div>
+    <div class="contact-item">
+      <div><div class="contact-name">Konstantinos — receipt</div><div class="contact-plain">Approved</div></div>
+      <div class="contact-actions"><a class="contact-btn" href="documents/Visit_Zanzibar_TRIK_2.pdf" target="_blank" rel="noopener" aria-label="Open Konstantinos Zanzibar insurance receipt">📄</a></div>
+    </div>
+    <div class="contact-item">
+      <div><div class="contact-name">Sia — certificate</div><div class="contact-plain">Approved</div></div>
+      <div class="contact-actions"><a class="contact-btn" href="documents/Visit_Zanzibar_SIA.pdf" target="_blank" rel="noopener" aria-label="Open Sia Zanzibar insurance">📄</a></div>
+    </div>
+    <div class="contact-item">
+      <div><div class="contact-name">Sia — receipt</div><div class="contact-plain">Approved</div></div>
+      <div class="contact-actions"><a class="contact-btn" href="documents/Visit_Zanzibar_SIA_2.pdf" target="_blank" rel="noopener" aria-label="Open Sia Zanzibar insurance receipt">📄</a></div>
+    </div>
+
+    <div class="contact-group-lbl">Tanzania e-visa</div>
+    <div class="contact-item doc-pending">
+      <div><div class="contact-name">Konstantinos</div><div class="contact-plain">Pending approval</div></div>
+      <div class="contact-actions"><a class="contact-btn" href="#" aria-label="Pending">📄</a></div>
+    </div>
+    <div class="contact-item doc-pending">
+      <div><div class="contact-name">Sia</div><div class="contact-plain">Pending approval</div></div>
+      <div class="contact-actions"><a class="contact-btn" href="#" aria-label="Pending">📄</a></div>
+    </div>
+  </div>
+</div>
+
 <script>
 function activateTab(name){
   document.querySelectorAll('.tabpanel').forEach(function(p){ p.classList.remove('active'); });
@@ -1056,6 +1108,13 @@ function toggleAllDays(tab, btn){
 
 function toggleContacts(show){
   var modal = document.getElementById('contactsModal');
+  if (!modal) return;
+  if (show) { modal.classList.add('open'); }
+  else { modal.classList.remove('open'); }
+}
+
+function toggleDocuments(show){
+  var modal = document.getElementById('documentsModal');
   if (!modal) return;
   if (show) { modal.classList.add('open'); }
   else { modal.classList.remove('open'); }
